@@ -1,5 +1,7 @@
 function highboost(k)
-myImage=imread('cameraman.tif');
+[f,p]=uigetfile('*.tif','Select an image');
+
+myImage=imread([p,f]);
 % k = 8
 Guassian = imgaussfilt(myImage);
 diff = myImage-Guassian;
@@ -8,16 +10,16 @@ masked = myImage + (diff*k);
 figure();
 subplot(2,2,1);
 imshow(myImage); 
-title('Orijinal Görüntü');
+title('Original Image');
 
 subplot(2,2,2);
 imshow(Guassian);
-title('Yumuþatýlmýþ Görüntü');
+title('Blurred Image');
 
 subplot(2,2,3);
 imshow(diff); 
-title('Fark Görüntü');
+title('The Difference');
 
 subplot(2,2,4);
 imshow(masked); 
-title(['Keskinleþtirilmiþ Görüntü ', 'k = ', num2str(k)]);
+title(['Sharpened Image ', 'k = ', num2str(k)]);
