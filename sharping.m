@@ -1,2 +1,2 @@
-k = input('k degerini giriniz: ');
+k = input('Enter k value: ');
 highboost(k);
